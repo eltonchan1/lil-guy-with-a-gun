@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://bypntgkef6qeb"]
+
+[ext_resource type="Script" uid="uid://bqdhpksmtc85i" path="res://winscreen.gd" id="1_h3yos"]
+[ext_resource type="Theme" uid="uid://c41g1ms0orqyc" path="res://button.tres" id="2_ehxyi"]
+
+[node name="winscreen" type="CanvasLayer" unique_id=1521948009]
+process_mode = 3
+layer = 10
+script = ExtResource("1_h3yos")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1955765214]
+process_mode = 3
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0.1764706, 0.15294118, 0.18431373, 0.78431374)
+
+[node name="Label" type="Label" parent="." unique_id=1207601836]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -292.0
+offset_top = 68.0
+offset_right = 308.0
+offset_bottom = 212.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 150
+text = "you win :)"
+
+[node name="Button" type="Button" parent="." unique_id=793668019]
+process_mode = 3
+offset_left = 343.0
+offset_top = 245.0
+offset_right = 807.0
+offset_bottom = 371.0
+theme = ExtResource("2_ehxyi")
+theme_override_font_sizes/font_size = 100
+text = "play again"
+
+[node name="Button2" type="Button" parent="." unique_id=1580907353]
+process_mode = 3
+offset_left = 346.0
+offset_top = 409.0
+offset_right = 808.0
+offset_bottom = 535.0
+theme = ExtResource("2_ehxyi")
+theme_override_font_sizes/font_size = 100
+text = "main menu"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

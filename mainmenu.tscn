@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://cdn5ewwex7s03"]
+
+[ext_resource type="Script" uid="uid://brmwmd5n0xv1p" path="res://mainmenu.gd" id="1_3pujl"]
+[ext_resource type="Texture2D" uid="uid://b2xqh6j6qwqfe" path="res://wall.png" id="1_wgsso"]
+[ext_resource type="Texture2D" uid="uid://b6e6t1btmy3qr" path="res://lilguy.png" id="2_igs2m"]
+[ext_resource type="Texture2D" uid="uid://cavsp27rtintk" path="res://gun.png" id="3_3pujl"]
+[ext_resource type="Theme" uid="uid://c41g1ms0orqyc" path="res://button.tres" id="4_igs2m"]
+
+[node name="mainmenu" type="Node2D" unique_id=1473897626]
+script = ExtResource("1_3pujl")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1367363065]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1804623809]
+position = Vector2(576, 324)
+scale = Vector2(18, 10.125)
+texture = ExtResource("1_wgsso")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1837675009]
+position = Vector2(257, 427.99997)
+rotation = -0.2617994
+scale = Vector2(18.352358, 18.352358)
+texture = ExtResource("2_igs2m")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1332073193]
+position = Vector2(736.00006, 289.00003)
+rotation = -0.2617994
+scale = Vector2(33.740707, 33.740707)
+texture = ExtResource("3_3pujl")
+
+[node name="Label" type="Label" parent="." unique_id=1468605144]
+offset_left = 23.0
+offset_top = 173.0
+offset_right = 892.0
+offset_bottom = 293.0
+rotation = -0.2617994
+theme_override_colors/font_color = Color(0.1764706, 0.15294118, 0.18431373, 1)
+theme_override_font_sizes/font_size = 100
+text = "lil guy with a gun"
+
+[node name="Label2" type="Label" parent="." unique_id=1227491269]
+offset_left = 629.0
+offset_top = 364.00003
+offset_right = 1061.543
+offset_bottom = 412.00003
+rotation = -0.2617994
+theme_override_colors/font_color = Color(0.1764706, 0.15294118, 0.18431373, 1)
+theme_override_font_sizes/font_size = 50
+text = "(image not to scale)"
+
+[node name="Button" type="Button" parent="." unique_id=1923484701]
+offset_left = 834.0
+offset_top = 363.0
+offset_right = 1105.0
+offset_bottom = 479.0
+theme = ExtResource("4_igs2m")
+theme_override_font_sizes/font_size = 100
+text = "play"
+
+[node name="Button2" type="Button" parent="." unique_id=931892784]
+offset_left = 832.0
+offset_top = 498.0
+offset_right = 1103.0
+offset_bottom = 615.0
+theme = ExtResource("4_igs2m")
+theme_override_font_sizes/font_size = 100
+text = "quit"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

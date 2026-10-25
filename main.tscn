@@ -1,0 +1,178 @@
+[gd_scene format=3 uid="uid://cx1wdejqfhhpn"]
+
+[ext_resource type="Script" uid="uid://bcoavulpvijue" path="res://lilguy.gd" id="1_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://b2xqh6j6qwqfe" path="res://wall.png" id="1_5vw27"]
+[ext_resource type="Texture2D" uid="uid://cv6qn51ulj4a6" path="res://bg.png" id="1_efxa6"]
+[ext_resource type="Script" uid="uid://c1gvwr6ceu3ob" path="res://core.gd" id="2_272bh"]
+[ext_resource type="PackedScene" uid="uid://bf0rmsmytjgdt" path="res://enemybullet.tscn" id="3_5vw27"]
+[ext_resource type="Script" uid="uid://co6iwi5t2avge" path="res://gun.gd" id="3_h2yge"]
+[ext_resource type="Texture2D" uid="uid://77ba0vppr1g3" path="res://core.png" id="4_4c57u"]
+[ext_resource type="PackedScene" uid="uid://y77dwoxgv4qp" path="res://bullet.tscn" id="5_lquwl"]
+[ext_resource type="Texture2D" uid="uid://b6e6t1btmy3qr" path="res://lilguy.png" id="6_efxa6"]
+[ext_resource type="Script" uid="uid://cqqgm2qyj68gi" path="res://hud.gd" id="8_5vw27"]
+[ext_resource type="Texture2D" uid="uid://cavsp27rtintk" path="res://gun.png" id="9_4c57u"]
+[ext_resource type="Theme" uid="uid://dnx8herln3h8y" path="res://healthbar.tres" id="12_dg77c"]
+[ext_resource type="PackedScene" uid="uid://rcodvyosfjne" path="res://deathscreen.tscn" id="13_ycdy4"]
+[ext_resource type="PackedScene" uid="uid://bypntgkef6qeb" path="res://winscreen.tscn" id="14_w48qg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2yge"]
+size = Vector2(1152, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+size = Vector2(8, 648)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
+size = Vector2(1152, 8)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dg77c"]
+radius = 122.77622
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
+size = Vector2(11, 16)
+
+[node name="main" type="Node2D" unique_id=490578179]
+
+[node name="Bg" type="Sprite2D" parent="." unique_id=1547440198]
+position = Vector2(576, 324)
+texture = ExtResource("1_efxa6")
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=449295153]
+offset_right = 1149.0
+offset_bottom = 644.0
+color = Color(0, 0, 0, 0.6666667)
+
+[node name="walls" type="Node2D" parent="." unique_id=255506854]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="walls" unique_id=1034835826]
+position = Vector2(577, 644)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/StaticBody2D" unique_id=1076265098]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_h2yge")
+
+[node name="Sprite2D" type="Sprite2D" parent="walls/StaticBody2D" unique_id=1512996861]
+scale = Vector2(17.968754, 0.125)
+texture = ExtResource("1_5vw27")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="walls" unique_id=2116111987]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/StaticBody2D2" unique_id=1473290115]
+position = Vector2(4, 324)
+shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="Sprite2D" type="Sprite2D" parent="walls/StaticBody2D2" unique_id=1818299900]
+position = Vector2(3.999999, 324.5)
+scale = Vector2(0.12500001, 10.109375)
+texture = ExtResource("1_5vw27")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="walls" unique_id=1956618776]
+position = Vector2(576, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/StaticBody2D3" unique_id=652937934]
+shape = SubResource("RectangleShape2D_lquwl")
+
+[node name="Sprite2D" type="Sprite2D" parent="walls/StaticBody2D3" unique_id=201914155]
+scale = Vector2(18, 0.125)
+texture = ExtResource("1_5vw27")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="walls" unique_id=815073774]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/StaticBody2D4" unique_id=5562745]
+position = Vector2(1148, 324)
+shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="Sprite2D" type="Sprite2D" parent="walls/StaticBody2D4" unique_id=2130521123]
+position = Vector2(1148, 324)
+scale = Vector2(0.12500119, 10.124999)
+texture = ExtResource("1_5vw27")
+
+[node name="core" type="StaticBody2D" parent="." unique_id=1699515615]
+position = Vector2(576, 233)
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("2_272bh")
+bullet_scene = ExtResource("3_5vw27")
+
+[node name="Sprite2D" type="Sprite2D" parent="core" unique_id=1674814567]
+scale = Vector2(1.0133333, 1.0133333)
+texture = ExtResource("4_4c57u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="core" unique_id=417474859]
+shape = SubResource("CircleShape2D_dg77c")
+
+[node name="lilguy" type="CharacterBody2D" parent="." unique_id=1873563208]
+position = Vector2(28, 620)
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_0xm2m")
+
+[node name="Sprite2D" type="Sprite2D" parent="lilguy" unique_id=249630406]
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("6_efxa6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lilguy" unique_id=1710263099]
+position = Vector2(-0.5, 3)
+shape = SubResource("RectangleShape2D_0xm2m")
+
+[node name="pivot" type="Node2D" parent="lilguy" unique_id=1002744631]
+script = ExtResource("3_h2yge")
+bullet_scene = ExtResource("5_lquwl")
+
+[node name="gun" type="Sprite2D" parent="lilguy/pivot" unique_id=2113391964]
+position = Vector2(23, 0)
+scale = Vector2(1.3750004, 1.375001)
+texture = ExtResource("9_4c57u")
+
+[node name="muzzle" type="Marker2D" parent="lilguy/pivot/gun" unique_id=32995894]
+position = Vector2(8.727271, -2.1818166)
+
+[node name="hud" type="CanvasLayer" parent="." unique_id=1678215944]
+script = ExtResource("8_5vw27")
+
+[node name="bossbar" type="ProgressBar" parent="hud" unique_id=432217069]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -560.0
+offset_top = 16.0
+offset_right = 560.0
+offset_bottom = 80.0
+grow_horizontal = 2
+theme = ExtResource("12_dg77c")
+show_percentage = false
+
+[node name="playerbar" type="ProgressBar" parent="hud" unique_id=1872923543]
+offset_left = 16.0
+offset_top = 120.0
+offset_right = 400.0
+offset_bottom = 152.0
+theme = ExtResource("12_dg77c")
+show_percentage = false
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1514960099]
+visible = false
+offset_left = 53.0
+offset_top = 617.0
+offset_right = 69.0
+offset_bottom = 633.0
+
+[node name="Label" type="Label" parent="." unique_id=831764828]
+offset_left = 17.0
+offset_top = 76.0
+offset_right = 103.0
+offset_bottom = 123.0
+theme_override_font_sizes/font_size = 48
+text = "core"
+
+[node name="Label" type="Label" parent="Label" unique_id=1777497202]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 75.0
+offset_right = 87.0
+offset_bottom = 122.0
+theme_override_font_sizes/font_size = 36
+text = "you"
+
+[node name="deathscreen" parent="." unique_id=1521948009 instance=ExtResource("13_ycdy4")]
+
+[node name="winscreen" parent="." unique_id=68216885 instance=ExtResource("14_w48qg")]
